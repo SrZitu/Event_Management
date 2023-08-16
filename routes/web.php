@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\frontendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,5 +48,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('events',EventController::class);
 });
 
-Route::get('/home',[frontendController::class,'home'])->name('home');
+Route::get('/home',[ReservationController::class,'home'])->name('home');
+Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
+Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 require __DIR__ . '/auth.php';
