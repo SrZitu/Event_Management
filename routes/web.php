@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\frontendController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -46,4 +47,5 @@ Route::middleware('auth')->group(function(){
     Route::resource('events',EventController::class);
 });
 
+Route::get('/home',[frontendController::class,'home'])->name('home');
 require __DIR__ . '/auth.php';
